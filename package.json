@@ -1,6 +1,6 @@
 {
   "name": "ember-datepicker",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Ember CLI addon component to add a jQuery UI Datepicker to your templates.",
   "directories": {
     "doc": "doc",
