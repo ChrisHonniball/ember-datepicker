@@ -1,0 +1,1 @@
+export { default } from 'ember-datepicker/blueprints/ember-datepicker';

@@ -21,6 +21,7 @@
         <li><a href="#installation">Installation</a></li>
         <li><a href="#project-status">Project Status</a></li>
         <li><a href="#examples">Examples</a></li>
+        <li><a href="#options">Options</a></li>
       </ul>
     </div>
   </div>
@@ -36,7 +37,7 @@
 </div>
 
 <div class="clearfix"></div>
-<hr class="row">
+<hr>
 
 <div class="col-lg-10 col-lg-offset-1 col-md-12">
   <h2>Installation</h2>
@@ -46,34 +47,489 @@
 </div>
 
 <div class="clearfix"></div>
-<hr class="row">
+<hr>
 
 <div class="col-lg-10 col-lg-offset-1 col-md-12">
   <h2>Project Status</h2>
-    <p class="lead">
-    <span class="label label-danger">Rapid Development</span>&nbsp;
-    This addon <em>will</em> change rapidly at this stage and <em>may</em> not be fully functional.
-
-    {{!
+  <p class="lead">
     <span class="label label-success">Stable</span>&nbsp;
     <a href="https://github.com/ChrisHonniball/ember-datepicker/releases/latest">Stable version released</a>. All additional development will be tagged as a new release.
-    }}
   </p>
 
   <div id="examples" role="marker"></div>
 </div>
 
 <div class="clearfix"></div>
-<hr class="row">
+<hr>
 
 <div class="col-lg-10 col-lg-offset-1 col-md-12">
   <h2>Examples</h2>
 
-  Coming once the component is finalized.
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">Simple Inline Datepicker</div>
+    </div>
+  
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{ember-datepicker value=example1}}
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{#ember-highlight-code language="handlebars"}}
+              \{{ember-datepicker value=example1}}
+            {{/ember-highlight-code}}
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <pre>Value: {{example1}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">Simple <code>&lt;input&gt;</code> Datepicker</div>
+    </div>
+  
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <div class="input-group">
+              {{ember-datepicker
+                id="example-2"
+                class="form-control"
+                inline=false
+                value=example2
+              }}
+              <label class="input-group-addon" for="example-2"><i class="fa fa-calendar"></i></label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{#ember-highlight-code language="handlebars"}}
+              &lt;div class="input-group"&gt;
+                \{{ember-datepicker
+                  id="example-2"
+                  class="form-control"
+                  inline=false
+                  value=example2
+                }}
+                &lt;label class="input-group-addon" for="example-2"&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt;&lt;/label&gt;
+              &lt;/div&gt;
+            {{/ember-highlight-code}}
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <pre>Value: {{example2}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">Inline with date markers</div>
+    </div>
+  
+    <div class="panel-body">
+      <h5 class="text-uppercase text-muted">Example</h5>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{ember-datepicker
+              id="example-3"
+              inline=true
+              dateMarkers=dates
+              value=example3
+            }}
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{#ember-highlight-code language="handlebars"}}
+              \{{ember-datepicker
+                id="example-3"
+                class="form-control"
+                inline=true
+                dateMarkers=dates
+                value=example3
+              }}
+            {{/ember-highlight-code}}
+          </div>
+          
+          <div class="form-group">
+            {{#ember-highlight-code language="css"}}
+              .ember-datepicker .date-with-events {
+                position: relative;
+              }
+              .ember-datepicker .date-with-events > a:after {
+                position: absolute;
+                top: 50%; left: 50%;
+                margin: -16px 0px 0px -13px;
+                font-size: 25px;
+                content: '\2022';
+                color: #aaa;
+              }
+            {{/ember-highlight-code}}
+          </div>
+        </div>
+        
+        <div class="clearfix"></div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <pre>Value: {{example3}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">Inline with only dates that have events selectable and alternate <code>dateWithEventsClass</code> setting</div>
+    </div>
+  
+    <div class="panel-body">
+      <h5 class="text-uppercase text-muted">Example</h5>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{ember-datepicker
+              id="example-4"
+              inline=true
+              dateMarkers=dates
+              daysWithoutEventsSelectable=false
+              dateWithEventsClass="has-events"
+              value=example4
+            }}
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{#ember-highlight-code language="handlebars"}}
+              \{{ember-datepicker
+                id="example-4"
+                class="form-control"
+                inline=true
+                dateMarkers=dates
+                daysWithoutEventsSelectable=false
+                dateWithEventsClass="has-events"
+                value=example4
+              }}
+            {{/ember-highlight-code}}
+          </div>
+          
+          <div class="form-group">
+            {{#ember-highlight-code language="css"}}
+              .ember-datepicker .has-events {
+                position: relative;
+              }
+              .ember-datepicker .has-events > a:after {
+                position: absolute;
+                top: 50%; left: 50%;
+                margin: -16px 0px 0px -13px;
+                font-size: 25px;
+                content: '\2022';
+                color: #aaa;
+              }
+            {{/ember-highlight-code}}
+          </div>
+        </div>
+        
+        <div class="clearfix"></div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <pre>Value: {{example4}}</pre>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">Inline with <code>minDate</code> and <code>maxDate</code> that depend on another datepicker</div>
+    </div>
+  
+    <div class="panel-body">
+      <h5 class="text-uppercase text-muted">Example</h5>
+      <div class="row">
+        <div class="col-sm-8 col-xs-12">
+          <div class="col-md-6">
+            <div class="form-group">
+              {{ember-datepicker
+                id="example-5"
+                inline=true
+                dateMarkers=dates
+                maxDate=example6
+                value=example5
+              }}
+            </div>
+            <pre>Value: {{example5}}</pre>
+          </div>
+              
+          <div class="col-md-6">
+            <div class="form-group">
+              {{ember-datepicker
+                id="example-6"
+                inline=true
+                dateMarkers=dates
+                minDate=example5
+                value=example6
+              }}
+            </div>
+            <pre>Value: {{example6}}</pre>
+          </div>
+        </div>
+        
+        <div class="col-sm-4 col-xs-12">
+          <div class="form-group">
+            {{#ember-highlight-code language="handlebars"}}
+              \{{ember-datepicker
+                id="example-5"
+                inline=true
+                dateMarkers=dates
+                maxDate=example6
+                value=example5
+              }}
+              
+              \{{ember-datepicker
+                id="example-6"
+                inline=true
+                dateMarkers=dates
+                minDate=example5
+                value=example6
+              }}
+            {{/ember-highlight-code}}
+          </div>
+        </div>
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">Inline picker with custom styling</div>
+    </div>
+  
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{ember-datepicker
+              id="example-7"
+              changeMonth=true
+              changeYear=true
+              minDate="-45D"
+              maxDate="+1M"
+              markerTooltipPrefix="Things to do: "
+              markerTooltipSuffix=""
+              dateMarkers=dates
+              value=example7
+              action="dateSelected"
+            }}
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            {{#ember-highlight-code language="handlebars"}}
+              \{{ember-datepicker
+                id="example-7"
+                changeMonth=true
+                changeYear=true
+                minDate="-11D"
+                maxDate="+1M"
+                markerTooltipPrefix="Things to do: "
+                markerTooltipSuffix=""
+                dateMarkers=dates
+                value=example7
+                action="dateSelected"
+              }}
+            {{/ember-highlight-code}}
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <pre>Value: {{example7}}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="clearfix" id="options"></div>
 </div>
 
 <div class="clearfix"></div>
-<hr class="row">
+<hr>
+
+<div class="col-lg-10 col-lg-offset-1 col-md-12">
+  <h2>Options</h2>
+  
+  <h3>Application Environment Options</h3>
+  
+  <p><code>ember-datepicker</code> uses Ember CLI environment settings to include the stylesheet for highlighting syntax. This prevents the need for unnecessary styles being added to your vendor.css. To include your desired style add the following option to your <code>config/environment.js</code>.</p>
+  
+  {{#ember-highlight-code language="javascript"}}
+    // config/environment.js
+    module.exports = function(environment) {
+      var ENV = {
+        // ...
+        'ember-datepicker': {
+          theme: 'flick'
+        }
+      };
+      // ...
+      return ENV;
+    };
+  {{/ember-highlight-code}}
+  
+  <hr>
+  
+  <dl class="dl-horizontal">
+    <dt>theme</dt>
+    <dd>The code highlight style you want <code>ember-highlight-code</code> to use. To use a style, include the theme name from: <a href="https://github.com/components/jqueryui/tree/master/themes" target="_blank">jQuery UI themes</a>. A preview of the available themes can be accessed in the <a href="http://jqueryui.com/themeroller/" target="_blank">jQuery Themeroller</a>.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>"flick"</code></dd>
+  </dl>
+  
+  <h3>Component Options</h3>
+  <dl class="dl-horizontal">
+    <dt>inline</dt>
+    <dd>Flag that determines if this picker is to be rendered as a <code>&lt;div&gt;</code> or as an <code>&lt;input&gt;</code>.</dd>
+    <dt><span class="small text-muted">boolean</span></dt>
+    <dd><code>true</code></dd>
+    
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>action</dt>
+    <dd>The action to send back to the application when a date is selected.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>null</code></dd>
+    
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>value</dt>
+    <dd>The value that is associated with this picker.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>null</code></dd>
+    
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>dateMarkers</dt>
+    <dd>
+      <p>The dates that have events.</p>
+      <p><strong>Expected format:</strong></p>
+      {{#ember-highlight-code}}
+        var dates = {
+          '2015-01-01': 2,
+          '2015-01-05': 4,
+          // ...
+        };
+      {{/ember-highlight-code}}
+    </dd>
+    <dt><span class="small text-muted">object</span></dt>
+    <dd><code>{}</code></dd>
+    
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>dateFormat</dt>
+    <dd>The format for the date. Reference: <a href="http://api.jqueryui.com/datepicker/#utility-formatDate" target="_blank">jQuery Datepicker Widget API Docs</a></dd>
+    <dt><span class="small text-muted">jQuery Datepicker Date</span></dt>
+    <dd><code>"yy-mm-dd"</code></dd>
+    
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>changeMonth</dt>
+    <dd>If <code>true</code>, show dropdown menu for month selection.</dd>
+    <dt><span class="small text-muted">boolean</span></dt>
+    <dd><code>false</code></dd>
+    
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>changeYear</dt>
+    <dd>If <code>true</code>, show dropdown menu for year selection.</dd>
+    <dt><span class="small text-muted">boolean</span></dt>
+    <dd><code>false</code></dd>
+  
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>dateWithEventsClass</dt>
+    <dd>The class to be applied for dates with events.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>"date-with-events"</code></dd>
+  
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>dateNoEventsClass</dt>
+    <dd>The class to be applied for dates without events.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>"date-no-events"</code></dd>
+  
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>minDate</dt>
+    <dd>The minimum selectable date on the picker. Value can be either a valid <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank">moment.js date</a> string or a valid <a href="http://api.jqueryui.com/datepicker/#option-minDate" target="_blank">jQUery Datepicker Widget</a> date string.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>null</code></dd>
+  
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>maxDate</dt>
+    <dd>The maximum selectable date on the picker. Value can be either a valid <a href="http://momentjs.com/docs/#/displaying/format/" target="_blank">moment.js date</a> string or a valid <a href="http://api.jqueryui.com/datepicker/#option-maxDate" target="_blank">jQUery Datepicker Widget</a> date string.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>null</code></dd>
+  
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>markerTooltipPrefix</dt>
+    <dd>The prefix for the tooltips on dates that have events.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>""</code></dd>
+    
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>markerTooltipSuffix</dt>
+    <dd>The suffix for the tooltips on dates that have events.</dd>
+    <dt><span class="small text-muted">string</span></dt>
+    <dd><code>" events"</code></dd>
+    
+    <dd class="clearfix">&nbsp;</dd>
+    
+    <dt>daysWithoutEventsSelectable</dt>
+    <dd>Whether or not the dates that do not have events whould be selectable.</dd>
+    <dt><span class="small text-muted">boolean</span></dt>
+    <dd><code>true</code></dd>
+  </dl>
+</div>
+
+<div class="clearfix"></div>
+<hr>
 
 <div class="col-xs-12 text-center lead">
   Created by <a href="https://github.com/ChrisHonniball">@ChrisHonniball</a>

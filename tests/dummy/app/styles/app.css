@@ -1,0 +1,136 @@
+/* Bootstrap default md */
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    width: 200px;
+  }
+  
+  .dl-horizontal dd {
+    margin-left: 220px;
+  }
+}
+
+.ember-datepicker .date-with-events {
+  position: relative;
+}
+.ember-datepicker .date-with-events > a:after {
+  position: absolute;
+  top: 50%; left: 50%;
+  margin: -16px 0px 0px -13px;
+  font-size: 25px;
+  content: '\2022';
+  color: #aaa;
+}
+
+.ember-datepicker .has-events {
+  position: relative;
+}
+.ember-datepicker .has-events > a:after {
+  position: absolute;
+  top: 50%; left: 50%;
+  margin: -16px 0px 0px -13px;
+  font-size: 25px;
+  content: '\2022';
+  color: #aaa;
+}
+
+
+#example-7 .ui-datepicker {
+  width: 315px;
+  background: #fff;
+  box-shadow: 0px 0px 5px #000;
+  border-radius: 0px;
+  margin: 0px auto 15px;
+  padding: 0px;
+  border-bottom: 1px solid #c2c0b8;
+  background: #fff;
+  
+  // Create stack of paper effect...
+  -webkit-box-shadow: 
+    0 5px 0 -4px #fff,
+    0 5px 0 -3px #c2c0b8,
+    0 11px 0 -8px #fff,
+    0 11px 0 -7px #c2c0b8,
+    0 17px 0 -12px #fff,
+    0 17px 0 -11px #c2c0b8;
+  -moz-box-shadow: 
+    0 5px 0 -4px #fff,
+    0 5px 0 -3px #c2c0b8,
+    0 11px 0 -8px #fff,
+    0 11px 0 -7px #c2c0b8,
+    0 17px 0 -12px #fff,
+    0 17px 0 -11px #c2c0b8;
+  box-shadow: 
+    0 5px 0 -4px #fff,
+    0 5px 0 -3px #c2c0b8,
+    0 11px 0 -8px #fff,
+    0 11px 0 -7px #c2c0b8,
+    0 17px 0 -12px #fff,
+    0 17px 0 -11px #c2c0b8;
+}
+
+#example-7 .ui-datepicker-header {
+  height: 50px;
+  line-height: 50px;
+  background: #eee;
+  padding: 0px;
+  border: none;
+  box-shadow: 0px 10px 10px -10px rgba(255, 255, 255, .8) inset;
+  border-radius: 0px;
+}
+#example-7 .ui-datepicker-header .ui-datepicker-prev, .ui-datepicker-next {
+  margin-top: 9px;
+}
+#example-7 .ui-datepicker-header .ui-datepicker-prev {}
+#example-7 .ui-datepicker-header .ui-datepicker-next {}
+
+#example-7 .ui-datepicker-header .ui-datepicker-title {
+  line-height: 47px;
+}
+#example-7 .ui-datepicker-header .ui-datepicker-title select.ui-datepicker-month,
+#example-7 .ui-datepicker-header .ui-datepicker-title select.ui-datepicker-year {
+  margin:5px;
+}
+
+#example-7 table.ui-datepicker-calendar thead th {
+  width: 14%;
+}
+
+#example-7 table.ui-datepicker-calendar tbody td a,
+#example-7 table.ui-datepicker-calendar tbody td span {
+  position: relative;
+  color: #333;
+  text-align: center;
+  border: none;
+  background: none;
+  height: 42px;
+}
+#example-7 table.ui-datepicker-calendar tbody td a:hover,
+#example-7 table.ui-datepicker-calendar tbody td span:hover {
+  box-shadow: 0px 0px 20px 0px #ddd inset;
+}
+#example-7 table.ui-datepicker-calendar tbody td a.ui-state-highlight,
+#example-7 table.ui-datepicker-calendar tbody td span.ui-state-highlight {
+  background: #dfe9db;
+}
+#example-7 table.ui-datepicker-calendar tbody td a.ui-state-highlight.ui-state-active,
+#example-7 table.ui-datepicker-calendar tbody td span.ui-state-highlight.ui-state-active {
+  background: #afbea9;
+}
+    
+#example-7 table.ui-datepicker-calendar tbody td a.ui-state-active,
+#example-7 table.ui-datepicker-calendar tbody td span.ui-state-active {
+  background-color: #dddddd;
+}
+
+#example-7 table.ui-datepicker-calendar tbody td.date-with-events {
+  position: relative;
+}
+#example-7 table.ui-datepicker-calendar tbody td.date-with-events a:after {
+  position: absolute;
+  top: 50%; left: 50%;
+  margin: -20px 0px 0px -7px;
+  font-size: 25px;
+  content: '\2022';
+  color: #888;
+  font-size: 40px;
+}
