@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember try:testall"
   },
-  "repository": "https://github.com:ChrisHonniball/ember-datepicker",
+  "repository": "https://github.com/ChrisHonniball/ember-datepicker",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -46,6 +46,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoUrl": "https://chrishonniball.github.io/ember-datepicker"
+    "demoURL": "https://chrishonniball.github.io/ember-datepicker"
   }
 }
